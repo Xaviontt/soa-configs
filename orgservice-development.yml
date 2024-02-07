@@ -1,6 +1,6 @@
 spring:
   application:
-    name: eclient
+    name: orgservice
 server:
   port: 0
 eureka:
