@@ -23,7 +23,7 @@ eureka:
 zuul:
   routes:
     orgservice:
-      path: /api/v1/orgmanager/**
+      path: /orgmanager/**
       serviceId: orgservice
       stripPrefix: false
 #      sensitiveHeaders:
