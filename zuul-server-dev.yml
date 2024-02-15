@@ -1,0 +1,41 @@
+server:
+  port: 8762
+#  ssl:
+#    key-store: classpath:keystore/keystore.jks
+#    key-store-password: password
+#    key-store-type: jks
+#    key-alias: soa
+#    enabled: true
+
+eureka:
+  instance:
+    hostname: localhost
+#    non-secure-port-enabled: false
+#    secure-port-enabled: true
+    prefer-ip-address: false
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+#    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/
+
+zuul:
+  routes:
+    orgservice:
+      path: /api/v1/orgmanager/**
+      serviceId: orgservice
+      stripPrefix: false
+#      sensitiveHeaders:
+#  ssl-hostname-validation-enabled: true
+  okhttp:
+    enabled: true
+  ignoredServices: '*'
+
+ribbon:
+  eureka:
+    enabled: true
+#  OkToRetryOnAllOperations: true
+#  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
+#  TrustStore: classpath:keystore/keystore.jks
+#  TrustStorePassword: password
